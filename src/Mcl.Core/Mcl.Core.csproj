@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{3E195CEA-3BF6-4AAD-8493-8CEB959FAE0F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Mcl.Core</RootNamespace>
+    <AssemblyName>Mcl.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MPayCliCppWrapper">
+      <HintPath>C:\Program Files (x86)\Netease\PC4399_MCLauncher\MPayCliCppWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Netease\PC4399_MCLauncher\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Presentation" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\CollectionExtensions.cs" />
+    <Compile Include="Extensions\MiscExtensions.cs" />
+    <Compile Include="Extensions\ResponseStatusExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Inject\InjectManager.cs" />
+    <Compile Include="Network\DataFormat.cs" />
+    <Compile Include="Network\FileParameter.cs" />
+    <Compile Include="Network\Http.cs" />
+    <Compile Include="Network\HttpCookie.cs" />
+    <Compile Include="Network\HttpFile.cs" />
+    <Compile Include="Network\HttpHeader.cs" />
+    <Compile Include="Network\HttpMethod.cs" />
+    <Compile Include="Network\HttpParameter.cs" />
+    <Compile Include="Network\HttpResponse.cs" />
+    <Compile Include="Network\Interface\IHttp.cs" />
+    <Compile Include="Network\Interface\IHttpFactory.cs" />
+    <Compile Include="Network\Interface\IHttpResponse.cs" />
+    <Compile Include="Network\Interface\INetClient.cs" />
+    <Compile Include="Network\Interface\INetRequest.cs" />
+    <Compile Include="Network\Interface\INetResponse.cs" />
+    <Compile Include="Network\Interface\SimpleFactory.cs" />
+    <Compile Include="Network\Method.cs" />
+    <Compile Include="Network\NetClient.cs" />
+    <Compile Include="Network\NetRequest.cs" />
+    <Compile Include="Network\NetRequestAsyncHandle.cs" />
+    <Compile Include="Network\NetResponse.cs" />
+    <Compile Include="Network\NetResponseBase.cs" />
+    <Compile Include="Network\NetResponseCookie.cs" />
+    <Compile Include="Network\Parameter.cs" />
+    <Compile Include="Network\ParameterType.cs" />
+    <Compile Include="Network\ResponseStatus.cs" />
+    <Compile Include="Network\TimeOutState.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\AppMutexHelper.cs" />
+    <Compile Include="Utils\RegistryHelper.cs" />
+    <Compile Include="Utils\RegKey.cs" />
+    <Compile Include="Utils\Util\FileVersionHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlatformPatcher.mcp" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Crane.MethodHook">
+      <Version>1.1.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Memory\Memory.csproj">
+      <Project>{0e278fda-e621-4bbb-a790-ffa71eae9e0a}</Project>
+      <Name>Memory</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
